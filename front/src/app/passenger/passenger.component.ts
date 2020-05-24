@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { PassengerService } from '../shared/passenger.service';
-import {Passenger} from '../shared/passenger.model';
+import { PassengerService } from '../shared/service/passenger.service';
+import {Passenger} from '../shared/models/passenger.model';
 
 declare var M: any;
 

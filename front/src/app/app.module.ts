@@ -5,17 +5,27 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { PassengerComponent } from './passenger/passenger.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import {RouterModule, Routes} from "@angular/router";
+import { TrainComponent } from './train/train.component';
 
+const appRoutes: Routes = [
+  {path: 'passengers', component: PassengerComponent},
+  {path: 'trains', component: TrainComponent}
+]
 
 @NgModule({
   declarations: [
     AppComponent,
-    PassengerComponent
+    PassengerComponent,
+    NavbarComponent,
+    TrainComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
