@@ -4,7 +4,9 @@ const cors = require('cors');
 
 const { mongoose } = require('./db.js');
 var passengerController = require('./controllers/passengerController.js');
-var trainController = require('./controllers/trainController')
+var trainController = require('./controllers/trainController');
+var ticketController = require('./controllers/ticketController');
+var soldTicketController = require('./controllers/soldTicketController')
 
 var app = express();
 app.use(bodyParser.json());
@@ -15,3 +17,5 @@ app.listen(3000, () => console.log('Server started at port : 3000'));
 
 app.use('/passengers', passengerController);
 app.use('/trains', trainController);
+app.use('/tickets', ticketController);
+app.use('/soldTickets', soldTicketController);
