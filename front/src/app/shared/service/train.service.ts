@@ -9,7 +9,8 @@ export class TrainService {
   trains: Train[];
   readonly baseURL = 'http://localhost:3000/trains';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   postTrain(train: Train) {
     return this.http.post(this.baseURL, train);

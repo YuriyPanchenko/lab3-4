@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content white-text">
+        <div class="row">
+          <div class="col s5">
+            <form #soldTicketForm="ngForm" (ngSubmit)="onSubmit(soldTicketForm)">
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="soldTicketService.selectedSoldTicket._id">
+              <div class="input-field col s12">
+                <select id = "ticket" name = "ticket" [(ngModel)]="soldTicketService.selectedSoldTicket.ticket" class="form-control">
+                  <option selected>Select ticket</option>
+                  <option *ngFor="let ticket of ticketService.tickets" value="{{ticket}}" >Place: {{ticket.place}}, Train direction: {{ticket.train.direction}}</option>
+                </select>
+              </div>
+              <div class="input-field col s12">
+                <select id = "passenger" name = "passenger" [(ngModel)]="soldTicketService.selectedSoldTicket.passenger" class="form-control">
+                  <option selected>Select passenger</option>
+                  <option *ngFor="let passenger of passengerService.passengers" value="{{passenger}}" >Name: {{passenger.name}}, Surname: {{passenger.surname}}  </option>
+                </select>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <button class="btn btn-custom right" type="button" (click)="resetForm(soldTicketForm)">Reset</button>
+                  <button class="btn btn-custom right" type="submit" [disabled]="!soldTicketForm.valid">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col s7">
+            <table class="responsive-table highlight" style="background-color: aquamarine">
+              <tr *ngFor="let soldTicket of soldTicketService.soldTickets">
+                <td>{{soldTicket.passenger.name}}</td>
+                <td>{{soldTicket.passenger.surname}}</td>
+                <td>{{soldTicket.ticket.train.direction}}</td>
+                <td>{{soldTicket.ticket.place}}</td>
+                <td>
+                  <a class="action-btn" (click)="onEdit(soldTicket)">
+                    <i class="material-icons">edit</i>
+                  </a>
+                  <a class="action-btn" style="margin: 15px" (click)="onDelete(soldTicket._id,soldTicketForm)">
+                    <i class="material-icons">delete</i>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

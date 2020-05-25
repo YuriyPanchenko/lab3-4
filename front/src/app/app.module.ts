@@ -8,10 +8,15 @@ import { PassengerComponent } from './passenger/passenger.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {RouterModule, Routes} from "@angular/router";
 import { TrainComponent } from './train/train.component';
+import { TicketComponent } from './ticket/ticket.component';
+import {componentFactoryName} from "@angular/compiler";
+import { SoldTicketComponent } from './sold-ticket/sold-ticket.component';
 
 const appRoutes: Routes = [
   {path: 'passengers', component: PassengerComponent},
-  {path: 'trains', component: TrainComponent}
+  {path: 'trains', component: TrainComponent},
+  {path: 'tickets', component: TicketComponent},
+  {path: 'soldTickets', component: SoldTicketComponent}
 ]
 
 @NgModule({
@@ -19,7 +24,9 @@ const appRoutes: Routes = [
     AppComponent,
     PassengerComponent,
     NavbarComponent,
-    TrainComponent
+    TrainComponent,
+    TicketComponent,
+    SoldTicketComponent
   ],
   imports: [
     BrowserModule,
